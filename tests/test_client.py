@@ -13,7 +13,7 @@ configure.load_config()
 def test_api_key_avilable_for_connection_in_urlscan():
     us = URLScan(configure)
     apikey = us.config.data['urlscanApiKey']
-    if apikey is None:
+    if apikey == "":
         apikey = os.getenv('urlscanApiKey')
     assert apikey != ""
 
@@ -21,7 +21,7 @@ def test_api_key_avilable_for_connection_in_urlscan():
 def test_api_key_avilable_for_connection_in_virustotal():
     us = VirusTotal(configure)
     apikey = us.config.data['virustotalApiKey']
-    if apikey is None:
+    if apikey == "":
         apikey = os.getenv('virustotalApiKey')
     assert apikey != ""
 
