@@ -1,5 +1,4 @@
-# malicious_detection
-Malicious Detection for IPv4 or Domain 
+# Malicious IPv4 or Domain Detection
 
 ## Update API Keys in config.json File
 Get Api keys from Virustotal and Urlscan to setup connection.
