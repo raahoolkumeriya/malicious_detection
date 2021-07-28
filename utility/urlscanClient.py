@@ -7,19 +7,19 @@ from time import sleep
 
 class URLScan:
     """URLScan Client
-    
+
     Parameters
     ----------
     config (obj) : configuration object
     """
     def __init__(self, config: object):
         """
-        Constructs to initilised class attributes 
+        Constructs to initilised class attributes
         Attributes
         ----------
         config (obj) : Configuration object
         rooturl (str): UrlScan API root URL
-        apikey (str) : API key 
+        apikey (str) : API key
         header (dict): Header details specific to UrlScan
         """
         logging.info('URLScan()')
@@ -30,12 +30,12 @@ class URLScan:
         if self.apikey is None:
             self.apikey = os.getenv('urlscanApiKey')
         self.header = {
-                    'API-Key':self.apikey ,
-                    'Content-Type':'application/json'}
+                    'API-Key': self.apikey,
+                    'Content-Type': 'application/json'}
         assert len(self.rooturl) > 0, "Url must be defined"
-        assert len(self.apikey) > 0, "API key is missing"    
+        assert len(self.apikey) > 0, "API key is missing"
 
-    def post_data(self, arg : str):
+    def post_data(self, arg: str):
         """
         Scan data to URLScanl API w.r.t IPv4 or Domain
         Attribute
@@ -44,12 +44,12 @@ class URLScan:
         Return
         ------
         dict object
-        """ 
+        """
         logging.info('URLScan()/post_data')
         try:
             data = {"url": arg, "visibility": "public"}
             resp = requests.post(
-                f'{self.rooturl}/scan/',headers=self.header,
+                f'{self.rooturl}/scan/', headers=self.header,
                 data=json.dumps(data))
             if resp.status_code == 200:
                 scanid = resp.json().get('uuid')
@@ -61,14 +61,14 @@ class URLScan:
             else:
                 return json.loads(resp.text)
         except Exception:
-            return f"Exception: Scan timeout"
-        
+            return "Exception: Scan timeout"
+
     def get_summary(self, data):
         """
         Parsing Summary status from JSON object
         Attribute
         ---------
-        data (dict): API Response return 
+        data (dict): API Response return
         Return
         ------
         dict --> On Successful response
@@ -78,12 +78,17 @@ class URLScan:
         if data.get('message') != "Not Found":
             summary = dict()
             if data.get('stats').get('ipStats') != []:
-                summary['main domain'] = data.get('stats').get('ipStats')[1].get('domains')[0]
-                summary['Ips address'] = [i['ips'][0] for i in data.get('stats').get('regDomainStats')]
-                summary['Category'] = data.get('verdicts').get('urlscan').get('categories')
-                summary['HTTP transactions'] = len(data.get('data').get('requests'))
+                summary['main domain'] = data.get('stats')\
+                    .get('ipStats')[1].get('domains')[0]
+                summary['Ips address'] = \
+                    [i['ips'][0] for i in data.get('stats').get('regDomainStats')]
+                summary['Category'] = data.get('verdicts')\
+                    .get('urlscan').get('categories')
+                summary['HTTP transactions'] = \
+                    len(data.get('data').get('requests'))
             else:
-                summary['ERR_EMPTY_RESPONSE'] = "We could not scan this website!"
+                summary['ERR_EMPTY_RESPONSE'] = \
+                    "We could not scan this website!"
             return summary
         else:
             return data
@@ -93,7 +98,7 @@ class URLScan:
         Calculation of Malicious summary
         Attribute
         ---------
-        data (dict): API Response return 
+        data (dict): API Response return
         Return
         ------
         dict --> On Successful response
@@ -102,15 +107,16 @@ class URLScan:
         if data.get('message') != "Not Found":
             score_overall = data.get('verdicts').get('overall').get('score')
             score_urlscan = data.get('verdicts').get('urlscan').get('score')
-            score_engines = data.get('verdicts').get('engines').get('score') 
-            score_community = data.get('verdicts').get('community').get('score') 
+            score_engines = data.get('verdicts').get('engines').get('score')
+            score_community = data.get('verdicts')\
+                .get('community').get('score')
             score = {
                 "overall": score_overall,
                 "urlscan": score_urlscan,
                 "engines": score_engines,
                 "community": score_community
             }
-            so=su=se=sc=False
+            so = su = se = sc = False
             if score_overall > 5:
                 so = True
             if score_urlscan > 5:
@@ -119,25 +125,12 @@ class URLScan:
                 se = True
             if score_community > 5:
                 sc = True
-            return {'score': score, 'status': any([so, su, se, sc]), "data": "PROCESSED"}
+            return {
+                'score': score,
+                'status': any([so, su, se, sc]),
+                "data": "PROCESSED"}
         else:
-            return {'score': None, 'status': None, "data": data.get('message')}
-
-
-# if __name__ == "__main__":
-#     from configure import IntConfig
-#     import os
-#     config = os.path.join(os.path.dirname(__file__),"..", "resources", "config.json")
-#     configure = IntConfig(config)
-#     configure.load_config()
-#     a = URLScan(configure)
-#     domain = "hsbc12321.com"
-#     us = a.post_data(domain) 
-#     urlscan = a.urlscan_status(us)
-#     # b = VirusTotal(configure)
-#     # vt = b.get_data(domain)
-#     # virustotal = b.virustotal_status(vt)
-#     # print("urlscan: ", urlscan )
-#     # print("virustotal: ", virustotal )
-
-#     # print(type(virustotal.get('status')))
+            return {
+                'score': None,
+                'status': None,
+                "data": data.get('message')}

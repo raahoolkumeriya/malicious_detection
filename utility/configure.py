@@ -2,6 +2,7 @@ import os
 import json
 import logging
 
+
 class IntConfig():
     """
     Initialize object by passing in path to config file
@@ -13,7 +14,7 @@ class IntConfig():
 
         Parameters
         ----------
-        path_to_config : path of config file 
+        path_to_config : path of config file
             Return the configuration object in the json format
         data : Dict
             Return the Dict object
@@ -21,9 +22,9 @@ class IntConfig():
         self.path_to_config = path_to_config
         self.data = {}
 
-    
     def load_config(self):
-        logging.info(f"Loading config from: {os.path.realpath(self.path_to_config)}")
+        logging.info(f"Loading config from: \
+            {os.path.realpath(self.path_to_config)}")
         with open(self.path_to_config, "r") as read_file:
             data = json.load(read_file)
             self.data = data
@@ -38,7 +39,7 @@ class IntConfig():
                 self.data['virustotalApiKey'] = data['virustotalApiKey']
             if 'scan_wait_time' in data:
                 self.data['scan_wait_time'] = data['scan_wait_time']
-   
+
             loggable_config_dict = {}
             for k, v in self.data.items():
                 if "apikey" not in k.lower() or v == "":

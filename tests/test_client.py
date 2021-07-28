@@ -4,7 +4,7 @@ from utility.configure import IntConfig
 import requests
 import os
 
-# Configuration setup 
+# Configuration setup
 config = os.path.join(os.path.abspath('.'), "resources", "config.json")
 configure = IntConfig(config)
 configure.load_config()
@@ -17,12 +17,14 @@ def test_api_key_avilable_for_connection_in_urlscan():
         apikey = os.getenv('urlscanApiKey')
     assert apikey != ""
 
+
 def test_api_key_avilable_for_connection_in_virustotal():
     us = VirusTotal(configure)
     apikey = us.config.data['virustotalApiKey']
     if apikey is None:
         apikey = os.getenv('virustotalApiKey')
     assert apikey != ""
+
 
 def test_connection_for_urlscan_api():
     test_endpoint = "https://urlscan.io/api/v1/search/?q=domain:urlscan.io"
@@ -31,8 +33,8 @@ def test_connection_for_urlscan_api():
     if apikey is None:
         apikey = os.getenv('virustotalApiKey')
     response = requests.get(test_endpoint, headers={
-                    'API-Key':apikey,
-                    'Content-Type':'application/json'})
+                    'API-Key': apikey,
+                    'Content-Type': 'application/json'})
     assert response.status_code == 200
 
 
@@ -44,5 +46,5 @@ def test_connection_for_virustotal_api():
         apikey = os.getenv('urlscanApiKey')
     response = requests.get(test_endpoint, headers={
                     'x-apikey': apikey,
-                     'Accept': 'application/json'})
+                    'Accept': 'application/json'})
     assert response.status_code == 200

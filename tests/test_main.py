@@ -9,18 +9,20 @@ def test_get_summary_with_query_parameter():
     assert response.status_code == 200
     assert response.json() == main.application_banner
 
+
 def test_get_summary_with_ip_as_path_parameter_not_200():
     response = client.get("/ip/10.10.10.10.12")
     assert response.status_code == 404
     assert response.json() == {
-        "detail":"IPv4 address validation failed"
+        "detail": "IPv4 address validation failed"
         }
+
 
 def test_get_summary_with_domain_path_parameter_not_200():
     response = client.get("/domain/readhat.-com")
     assert response.status_code == 404
     assert response.json() == {
-        "detail":"Domain name is not Valid Domain"}
+        "detail": "Domain name is not Valid Domain"}
 
 
 # def test_get_summary_with_ip_as_path_parameter_200():
