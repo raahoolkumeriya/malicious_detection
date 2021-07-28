@@ -29,9 +29,9 @@ def test_api_key_avilable_for_connection_in_virustotal():
 def test_connection_for_urlscan_api():
     test_endpoint = "https://urlscan.io/api/v1/search/?q=domain:urlscan.io"
     us = URLScan(configure)
-    apikey = os.getenv('virustotalApiKey')
+    apikey = os.getenv('urlscanApiKey')
     if apikey == "":
-        apikey = us.config.data['virustotalApiKey']
+        apikey = us.config.data['urlscanApiKey']
     response = requests.get(test_endpoint, headers={
                     'API-Key': apikey,
                     'Content-Type': 'application/json'})
@@ -41,7 +41,7 @@ def test_connection_for_urlscan_api():
 def test_connection_for_virustotal_api():
     test_endpoint = "https://www.virustotal.com/api/v3/domains/abc.com"
     us = URLScan(configure)
-    apikey = os.getenv('urlscanApiKey')
+    apikey = os.getenv('virustotalApiKey')
     if apikey == "":
         apikey = us.config.data['virustotalApiKey']
     response = requests.get(test_endpoint, headers={
