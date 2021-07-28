@@ -1,4 +1,4 @@
-# Malicious IPv4 or Domain Detection
+# Malicious IPv4 or Domain Detection [![Build Status](https://travis-ci.com/raahoolkumeriya/malicious_detection.svg?branch=main)](https://travis-ci.com/raahoolkumeriya/malicious_detection)
 
 ## Update API Keys in config.json File
 Get Api keys from Virustotal and Urlscan to setup connection.
