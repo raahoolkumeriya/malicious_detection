@@ -46,9 +46,9 @@ class VirusTotal:
         """
         self.config = config
         self.rooturl = config.data.get('virustotalUrl')
-        self.apikey = config.data.get('virustotalApiKey')
+        self.apikey = os.getenv('virustotalApiKey')
         if self.apikey == "":
-            self.apikey = os.getenv('virustotalApiKey')
+            self.apikey = config.data.get('virustotalApiKey')
         self.header = {
             'x-apikey': self.apikey,
             'Accept': 'application/json'}

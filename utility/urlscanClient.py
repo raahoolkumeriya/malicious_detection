@@ -23,13 +23,13 @@ class URLScan:
         header (dict): Header details specific to UrlScan
         """
         logging.info('URLScan()')
-        
+
         self.config = config
         self.rooturl = config.data.get('urlScanUrl')
         self.scan_time = config.data.get('scan_wait_time')
-        self.apikey = config.data.get('urlscanApiKey')
+        self.apikey = os.getenv('urlscanApiKey')
         if self.apikey == "":
-            self.apikey = os.getenv('urlscanApiKey')
+            self.apikey = config.data.get('urlscanApiKey')
         self.header = {
                     'API-Key': self.apikey,
                     'Content-Type': 'application/json'}
