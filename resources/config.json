@@ -1,0 +1,7 @@
+{
+    "urlScanUrl": "https://urlscan.io/api/v1",
+    "urlscanApiKey": "",
+    "scan_wait_time": 25,
+    "virustotalUrl": "https://www.virustotal.com/api/v3",
+    "virustotalApiKey": ""
+}
