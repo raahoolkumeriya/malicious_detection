@@ -45,6 +45,10 @@ app = FastAPI(
     version="1.0.0",
     servers=[
         {
+            "url": "https://maliciousdetection.herokuapp.com",
+            "description": "Live environment"
+        },
+        {
             "url": "http://127.0.0.1:8000",
             "description": "Development environment"}
     ],
