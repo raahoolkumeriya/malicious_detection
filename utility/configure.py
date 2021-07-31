@@ -23,8 +23,8 @@ class IntConfig():
         self.data = {}
 
     def load_config(self):
-        logging.info(f"Loading config from: \
-            {os.path.realpath(self.path_to_config)}")
+        logging.info(
+            f"Loading config from: {os.path.realpath(self.path_to_config)}")
         with open(self.path_to_config, "r") as read_file:
             data = json.load(read_file)
             self.data = data

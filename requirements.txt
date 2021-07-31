@@ -4,4 +4,6 @@ uvicorn==0.14.0
 requests==2.26.0
 pytest==6.2.4
 dnspython==2.1.0
-python-multipart
+python-multipart==0.0.5
+pytest-asyncio==0.15.1
+httpx==0.18.2
