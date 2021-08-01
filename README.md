@@ -1,4 +1,12 @@
-# Malicious IPv4 or Domain Detection [![Build Status](https://travis-ci.com/raahoolkumeriya/malicious_detection.svg?branch=main)](https://travis-ci.com/raahoolkumeriya/malicious_detection)
+# Malicious IPv4 or Domain Detection 
+[![Build Status](https://travis-ci.com/raahoolkumeriya/malicious_detection.svg?branch=main)](https://travis-ci.com/raahoolkumeriya/malicious_detection)
+[![GitHub issues](https://img.shields.io/github/issues/raahoolkumeriya/malicious_detection)](https://github.com/raahoolkumeriya/malicious_detection/issues)
+[![GitHub stars](https://img.shields.io/github/stars/raahoolkumeriya/malicious_detection)](https://github.com/raahoolkumeriya/malicious_detection/stargazers)
+[![GitHub license](https://img.shields.io/github/license/raahoolkumeriya/malicious_detection)](https://github.com/raahoolkumeriya/malicious_detection)
+[![GitHub license](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)](website:https://maliciousdetection.herokuapp.com/docs)
+
+[![Twitter](https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2FKumeriyaRahul)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fraahoolkumeriya%2Fmalicious_detection)
+
 
 ## Update API Keys in config.json File
 Get Api keys from Virustotal and Urlscan to setup connection.
