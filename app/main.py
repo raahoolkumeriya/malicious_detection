@@ -10,7 +10,7 @@ import dns.resolver
 from time import sleep
 from typing import Optional
 from collections import Counter
-from utility.configure import IntConfig
+from app.utility.configure import IntConfig
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 from fastapi import FastAPI, Form, HTTPException
@@ -467,5 +467,5 @@ async def determnation_of_malicious_result(
     else:
         return application_banner
 
-if __name__ == "__main__":
-    uvicorn.run("main:app", reload=True)
+# if __name__ == "__main__":
+#    uvicorn.run("main:app", reload=True)

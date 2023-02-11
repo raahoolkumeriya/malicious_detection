@@ -1,8 +1,8 @@
 import os
 from fastapi.testclient import TestClient
-import main
+import app.main
 import logging
-from utility.configure import IntConfig
+from app.utility.configure import IntConfig
 import pytest
 from httpx import AsyncClient
 
