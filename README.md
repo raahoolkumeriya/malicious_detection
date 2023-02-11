@@ -1,5 +1,5 @@
 # Malicious IPv4 or Domain Detection 
-[![Build Status](https://travis-ci.com/raahoolkumeriya/malicious_detection.svg?branch=main)](https://travis-ci.com/raahoolkumeriya/malicious_detection)
+[![Docker Image CI](https://github.com/raahoolkumeriya/malicious_detection/actions/workflows/docker-image.yml/badge.svg)](https://github.com/raahoolkumeriya/malicious_detection/actions/workflows/docker-image.yml)
 [![GitHub issues](https://img.shields.io/github/issues/raahoolkumeriya/malicious_detection)](https://github.com/raahoolkumeriya/malicious_detection/issues)
 [![GitHub stars](https://img.shields.io/github/stars/raahoolkumeriya/malicious_detection)](https://github.com/raahoolkumeriya/malicious_detection/stargazers)
 [![GitHub license](https://img.shields.io/github/license/raahoolkumeriya/malicious_detection)](https://github.com/raahoolkumeriya/malicious_detection)
