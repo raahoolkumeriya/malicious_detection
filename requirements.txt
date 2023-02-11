@@ -1,6 +1,6 @@
-fastapi==0.67.0
-pydantic==1.8.2
-uvicorn==0.14.0
+fastapi>=0.68.0,<0.69.0
+pydantic>=1.8.0,<2.0.0
+uvicorn>=0.15.0,<0.16.0
 requests==2.26.0
 pytest==6.2.4
 dnspython==2.1.0

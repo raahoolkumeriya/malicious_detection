@@ -57,3 +57,24 @@ To run all the tests of a project, simply run the pytest command:
     35.98s call     tests/test_main.py::test_get_summary_with_domain_name_as_path_parameter
     34.86s call     tests/test_main.py::test_determnation_of_malicious_result
     ==================================================================== 14 passed in 219.63s (0:03:39) =====================================================================
+
+# Dockerise version
+### Build the Docker Image
+
+Go to the project directory (in where your Dockerfile is, containing your app directory).
+- Build your FastAPI image:
+
+```docker build -t malicious .```
+
+### Start the Docker Container
+- Run a container based on your image:
+```docker run -d --name malicious_detection -p 80:80 malicious```
+
+#### Check it
+You should be able to check it in your Docker container's URL, for example: http://192.168.99.100/ or http://127.0.0.1/ (or equivalent, using your Docker host).
+
+#### Interactive API docs
+Now you can go to http://192.168.99.100/docs or http://127.0.0.1/docs (or equivalent, using your Docker host).
+
+#### Alternative API docs¶
+And you can also go to http://192.168.99.100/redoc or http://127.0.0.1/redoc (or equivalent, using your Docker host).
