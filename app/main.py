@@ -55,7 +55,7 @@ app = FastAPI(
     version="1.0.0",
     servers=[
         {
-            "url": "https://maliciousdetection.herokuapp.com",
+            "url": "https://maliciousdetection.onrender.com",
             "description": "Live environment"
         },
         {
