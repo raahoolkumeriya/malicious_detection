@@ -1,7 +1,7 @@
 fastapi>=0.68.0,<0.69.0
 pydantic>=1.8.0,<2.0.0
 uvicorn>=0.15.0,<0.16.0
-requests==2.31.0
+requests==2.32.2
 pytest==6.2.4
 dnspython==2.1.0
 python-multipart==0.0.5
